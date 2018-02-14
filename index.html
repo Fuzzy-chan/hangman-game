@@ -5,21 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Hangman Game</title>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />
+    
     <script src="assets/game.js"></script>
 </head>
 <body>
-    <div class="row"
         <div class"row" id="hangman_image">
+            
             <div class="col-md-12">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="images/hangmanStart.png" alt="Hangman_Image">
+                    <img class="card-img-top" src="images/hangmanStart.png" alt="Hangman_Image" id="hangman">
                     <div class="card-body">
-                      <h5 class="card-title" id="catagory">Word Catagory</h5>
+                      <p class="card-title" id="category">Word Category</p>
                       <p class="card-text" id="theWord">Word Goes Here</p>
                     </div>
                 </div>
             </div>
+            
         </div>
+        <div class "row" id="player_stats">
+            <p>
+                Current Guesses: <span id="currentGuesses"></span>
+            </p>
+            <p id="replay"></p>
+        </div>
+
     
 </body>
 </html>

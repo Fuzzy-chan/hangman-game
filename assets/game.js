@@ -57,6 +57,7 @@ var emptyWord =[];
 
 document.getElementById("theWord").innerHTML = display;
 
+
     document.onkeypress = function addGuess(event){
         
         var userGuess = event.key;
@@ -71,7 +72,7 @@ document.getElementById("theWord").innerHTML = display;
             }
 
 
-        
+
         
         //Recognizes that the guess is part of the word
         for (i=0; i<wordArray.length;i++){
@@ -85,9 +86,13 @@ document.getElementById("theWord").innerHTML = display;
         
     } // end finding letter
 
-        if(emptyWord.toString()===wordArray.toString()){
-            document.getElementById("replay").innerText = "You won, refresh to play again!";
-            
+
+        if (emptyWord.toString()===wordArray.toString() && wrongGuesses >= 5){
+            document.getElementById("replay").innerText = "Finally got it? Refresh to play again!"; 
+        }
+
+        else if(emptyWord.toString()===wordArray.toString() && wrongGuesses < 5){
+            document.getElementById("replay").innerText = "You won, refresh to play again!";          
         }
 
         if (wrongGuesses===1){
@@ -104,7 +109,14 @@ document.getElementById("theWord").innerHTML = display;
         }
         else if (wrongGuesses===5){
             document.getElementById("hangman").src = "images/hangmanDead.png";
-            document.getElementById("replay").innerText = "You lost, refresh to play again!";           
+            document.getElementById("replay").innerText = "You lost, refresh to play again!";  
+            gameRun=false;         
+        }
+
+        if (wrongGuesses > 5){
+            
+            document.getElementById("currentGuesses").innerHTML = guessedLetters[0]+"," + guessedLetters[1]+","+ guessedLetters[2]+","+ guessedLetters[3]+","+ guessedLetters[4];
+
         }
 
         //end event bracket
